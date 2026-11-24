@@ -11,3 +11,4 @@ Application de gestion des factures (clients, produits, factures) basée sur une
 | gateway-service | 8888 | Point d'entrée unique (Spring Cloud Gateway) |
 | discovery-service | 8761 | Annuaire Eureka |
 | billing-service | 8083 | Gestion des factures |
+| config-service | 9999 | Configuration centralisée (Spring Cloud Config) |
