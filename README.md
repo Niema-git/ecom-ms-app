@@ -8,3 +8,4 @@ Application de gestion des factures (clients, produits, factures) basée sur une
 |---|---|---|
 | customer-service | 8081 | Gestion des clients |
 | inventory-service | 8082 | Gestion des produits |
+| gateway-service | 8888 | Point d'entrée unique (Spring Cloud Gateway) |
