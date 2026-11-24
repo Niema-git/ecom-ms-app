@@ -1,5 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -11,12 +12,16 @@ export class Customers implements OnInit {
   customers = signal<any[]>([]);
   error = signal('');
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.http.get<any>(`${environment.gatewayUrl}/CUSTOMER-SERVICE/customers`).subscribe({
       next: data => this.customers.set(data._embedded.customers),
       error: err => this.error.set(err.message)
     });
+  }
+
+  getBills(c: any) {
+    this.router.navigateByUrl(`/bills/${c.id}`);
   }
 }

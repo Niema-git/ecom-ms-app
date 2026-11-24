@@ -1,0 +1,13 @@
+<h2>Factures du client {{ customerId }}</h2>
+@if (error()) { <p class="error">{{ error() }}</p> }
+<table>
+  <thead><tr><th>ID</th><th>Date</th><th></th></tr></thead>
+  <tbody>
+    @for (b of bills(); track b.id) {
+      <tr>
+        <td>{{ b.id }}</td><td>{{ b.billingDate | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td><button (click)="getDetails(b)">Détails</button></td>
+      </tr>
+    }
+  </tbody>
+</table>

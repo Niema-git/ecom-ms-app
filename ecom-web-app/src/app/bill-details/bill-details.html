@@ -1,0 +1,20 @@
+@if (error()) { <p class="error">{{ error() }}</p> }
+@if (bill(); as b) {
+  <h2>Facture n° {{ b.id }}</h2>
+  <p><b>Date :</b> {{ b.billingDate | date:'dd/MM/yyyy HH:mm' }}</p>
+  <p><b>Client :</b> {{ b.customer?.name }} ({{ b.customer?.email }})</p>
+  <table>
+    <thead><tr><th>Produit</th><th>Prix</th><th>Quantité</th><th>Montant</th></tr></thead>
+    <tbody>
+      @for (pi of b.productItems; track pi.id) {
+        <tr>
+          <td>{{ pi.product?.name }}</td>
+          <td>{{ pi.unitPrice | number:'1.2-2' }}</td>
+          <td>{{ pi.quantity }}</td>
+          <td>{{ pi.unitPrice * pi.quantity | number:'1.2-2' }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <p><b>Total :</b> {{ total() | number:'1.2-2' }}</p>
+}
