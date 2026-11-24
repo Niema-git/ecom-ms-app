@@ -2,6 +2,7 @@ package ma.enset.billingservice.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import ma.enset.billingservice.model.Customer;
 
 import java.util.Date;
 import java.util.List;
@@ -15,4 +16,6 @@ public class Bill {
     private Long customerId;
     @OneToMany(mappedBy = "bill")
     private List<ProductItem> productItems;
+    @Transient
+    private Customer customer;
 }
