@@ -7,3 +7,4 @@ Application de gestion des factures (clients, produits, factures) basée sur une
 | Service | Port | Rôle |
 |---|---|---|
 | customer-service | 8081 | Gestion des clients |
+| inventory-service | 8082 | Gestion des produits |
